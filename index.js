@@ -1,11 +1,15 @@
-module.exports = function(obj){
-	var completed = 0;
-	var ceiling = obj.functionArray.length;
-	function maybeDone(){
-		completed++;
-		if(completed === ceiling) obj.completeFunction();
+module.exports = function(obj) {
+	var count = 0;
+	var complete = 0;
+	var ceiling = obj.functionArray.length - 1;
+	function bsCB(num) {
+		complete++;
+		if(complete === ceiling) obj.completeFunction();
 	}
-	for (i=0; i<obj.functionArray.length; i++) {
-		obj.functionArray[i](maybeDone);
+	function call(num) {
+		obj.functionArray[num](bsCB);
+		count++;
+		if (count <= ceiling) call(count);
 	}
+	call(count);
 };
