@@ -1,6 +1,6 @@
 #FuncCon (function concurrence).
 
-##A sister package of [funcSeq](https://github.com/adammeola01/funcseq): 
+##A sister package of [funcSeq](https://github.com/adammeola01/funcseq):
 
 An old strategy for executing a function after a serious of asynchronous functions run to completion.
 
@@ -9,7 +9,7 @@ const con = require('funccon');
 
 con({functionArray, completeFunction});
 ```
-<br/>
+
 ```javascript
 con({
 	functionArray: [
@@ -45,7 +45,7 @@ con({
 					complete();
 				}
 			},100);
-		
+
 		}
 	],
 	completeFunction:function(){
