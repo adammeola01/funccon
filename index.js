@@ -4,7 +4,7 @@ module.exports = function(obj) {
 	var ceiling = obj.functionArray.length - 1;
 	function bsCB(num) {
 		complete++;
-		if(complete === ceiling) obj.completeFunction();
+		if(complete === ceiling + 1) obj.completeFunction();
 	}
 	function call(num) {
 		obj.functionArray[num](bsCB);
