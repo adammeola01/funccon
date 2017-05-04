@@ -1,19 +1,4 @@
-#FuncCon (function concurrence).
-
-##A sister package of [funcSeq](https://github.com/adammeola01/funcseq):
-
-An old strategy for executing a function after a serious of asynchronous functions run to completion.
-
-The "size" argument sets how many functions are allowed to run simultaniously
-
-```javascript
-const con = require('funccon');
-
-con({size, funcs, done});
-```
-
-```javascript
-var con = require('funccon');
+var con = require(process.cwd() + '/index.js');
 con({
 	size: 100, // number of function allowed to run simulataniously
 	funcs: [ // your functions
@@ -70,5 +55,3 @@ con({
 		console.log(arg);
 	}
 });
-
-```
