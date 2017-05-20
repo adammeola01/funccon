@@ -9,13 +9,12 @@ module.exports = (obj) => {
 	function bsCB() {
 		running--;
 		complete++;
-		if(running < obj.size && started < obj.funcs.length){
-			call(started);
+		if(running < obj.size && started+1 < obj.funcs.length){
+			call(started+1);
 		}
 		else if(complete === obj.funcs.length){
-			obj.done(args);
+			obj.done(args, obj.funcs);
 		}
-
 	}
 
 	function call(num) {
