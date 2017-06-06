@@ -3,12 +3,13 @@ module.exports = (obj) => {
 	var args = {arr:[]};
 	var next = 0;
 	var running = 0;
+	var complete = false;
 	var callNext = () => {
 		next++;
 		if (!obj.funcs[next]) {
-			if (!running){
+			if (!running && !complete){
 				obj.done(args);
-				process.exit();
+				complete = true;
 			}
 		} else {
 		running++;
