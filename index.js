@@ -1,35 +1,28 @@
 const _ = require('lodash');
-
 module.exports = (obj) => {
-	var complete = 0;
+	var args = {arr:[]};
+	var next = 0;
 	var running = 0;
-	var started = 0;
-	var args = [];
-	if(!obj.size) obj.size = Infinity;
-	function bsCB() {
-		running--;
-		complete++;
-		if(running < obj.size && started+1 < obj.funcs.length){
-			call(started+1);
-		}
-		else if(complete === obj.funcs.length){
-			obj.done(args, obj.funcs);
-		}
-	}
-
-	function call(num) {
-		running++;
-		started++;
-		obj.funcs[num](function() {
-			var arr = Object.keys(arguments);
-			for (i=0; i<arr.length; i++) {
-				args.push(arguments[arr[i]]);
+	var callNext = () => {
+		next++;
+		if (!obj.funcs[next]) {
+			if (!running){
+				obj.done(args);
+				process.exit();
 			}
-			bsCB();
-		});
-	}
-	for (i=0; i<obj.funcs.length; i++) {
-		call(i);
-		if ((i+1) >= obj.size) break;
+		} else {
+		running++;
+			obj.funcs[next]((arg) => {
+				running--;
+				if(typeof arg === 'string') args.arr.push(arg);
+				else args = _.merge(args, arg);
+				callNext(next);
+			});
+		}
+	};
+	next = -1;
+	for (i = 0; i < obj.funcs.length; i++) {
+		callNext(i);
+		if (i + 1 == obj.size) break;
 	}
 };
