@@ -1,6 +1,4 @@
-const _ = require('lodash');
 module.exports = (obj) => {
-	var args = {arr:[]};
 	var next = 0;
 	var running = 0;
 	var complete = false;
@@ -8,15 +6,13 @@ module.exports = (obj) => {
 		next++;
 		if (!obj.funcs[next]) {
 			if (!running && !complete){
-				obj.done(args);
+				obj.done();
 				complete = true;
 			}
 		} else {
 		running++;
 			obj.funcs[next]((arg) => {
 				running--;
-				if(typeof arg === 'string') args.arr.push(arg);
-				else args = _.merge(args, arg);
 				callNext(next);
 			});
 		}
