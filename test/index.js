@@ -51,7 +51,7 @@ con({
         }
     ],
 	done: function() { // this fires when all the above functions are complete
-		console.log('completeFunction called, done');
+		console.log('done called, done');
 		console.log();
 		con({
 			size: 1, // number of function allowed to run simulataniously
@@ -105,7 +105,7 @@ con({
 		        }
 		    ],
 			done: function() { // this fires when all the above functions are complete
-				console.log('completeFunction called, done');
+				console.log('done called, done');
 			}
 		});
 

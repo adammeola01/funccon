@@ -1,7 +1,7 @@
 module.exports = (obj) => {
-	var next = 0;
-	var running = 0;
-	var complete = false;
+	let next = 0;
+	let running = 0;
+	let complete = false;
 	var callNext = () => {
 		next++;
 		if (!obj.funcs[next]) {
