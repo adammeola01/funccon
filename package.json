@@ -1,7 +1,7 @@
 {
   "name": "funccon",
-  "version": "5.0.0",
-  "description": "funccon",
+  "version": "5.0.2",
+  "description": "A function concurrency strategy",
   "main": "index.js",
   "scripts": {
     "test": "node test"
@@ -18,10 +18,5 @@
   "homepage": "https://github.com/adammeola01/funccon#readme",
   "dependencies": {},
   "devDependencies": {
-    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "cp": "^0.2.0",
-    "node-minify": "^2.4.1",
-    "webinize": "^1.0.1"
   }
 }

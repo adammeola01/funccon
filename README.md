@@ -1,8 +1,8 @@
 #FuncCon (function concurrence).
 
-##A sister package of [funcSeq](https://github.com/adammeola01/funcseq):
-
 An old strategy for executing a function after a serious of asynchronous functions run to completion.
+
+...which can also be used to make things run in sequnce, by setting the size aregument to 1
 
 The "size" argument sets how many functions are allowed to run simultaniously
 
