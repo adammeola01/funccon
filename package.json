@@ -1,6 +1,6 @@
 {
   "name": "funccon",
-  "version": "5.0.2",
+  "version": "5.1.2",
   "description": "A function concurrency strategy",
   "main": "index.js",
   "scripts": {
