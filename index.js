@@ -1,23 +1,25 @@
-module.exports = (obj) => {
-	let next = 0;
-	let running = 0;
-	let complete = false;
-	var callNext = () => {
-		next++;
-		if (!obj.funcs[next]) {
-			if (!running && !complete){
-				obj.done();
-				complete = true;
-			}
-		} else {
-		running++;
-			obj.funcs[next]((arg) => {
-				running--;
-				callNext(next);
-			});
+let running = 0;
+let complete = false;
+let newObj = {};
+const callNext = (next) => {
+	next++;
+	if (!newObj.funcs[next]) {
+		if (!running && !complete){
+			newObj.done();
+			complete = true;
 		}
-	};
-	next = -1;
+	} else {
+		running++;
+		newObj.funcs[next]((arg) => {
+			running--;
+			setTimeout(()=>{
+				callNext(next, newObj);
+			}, 8);
+		});
+	}
+};
+module.exports = (obj) => {
+	newObj = obj;
 	for (i = 0; i < obj.funcs.length; i++) {
 		callNext(i);
 		if (i + 1 == obj.size) break;
