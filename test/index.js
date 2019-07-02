@@ -9,9 +9,10 @@ con({
 				console.log('func 1 counter: ' + counter);
 				if (counter >= 4) {
 					clearInterval(a);
-					complete(); // the complete function tells funccon to move on
+					complete(1); // the complete function tells funccon to move on
+								 //	Whatever you pass it will be given to the done function as an argument
 				}
-			}, 300);
+			}, 500);
         },
 		(complete) => {
 			var counter = 0;
@@ -20,9 +21,9 @@ con({
 				console.log('func 2 counter: ' + counter);
 				if (counter >= 4) {
 					clearInterval(a);
-					complete();
+					complete('foo');
 				}
-			}, 300);
+			}, 500);
         },
 		(complete) => {
 			var counter = 0;
@@ -31,9 +32,11 @@ con({
 				console.log('func 3 counter: ' + counter);
 				if (counter >= 4) {
 					clearInterval(a);
-					complete();
+					complete({
+						shit: 'real'
+					}, 'asfdas');
 				}
-			}, 300);
+			}, 500);
         },
 		(complete) => {
 			var counter = 0;
@@ -42,66 +45,14 @@ con({
 				console.log('func 4 counter: ' + counter);
 				if (counter >= 4) {
 					clearInterval(a);
-					complete();
+					complete('boom?');
 				}
-			}, 300);
+			}, 500);
         }
     ],
 	done: function() { // this fires when all the above functions are complete
-		console.log('done calledfirst time');
-		console.log();
-		con({
-			size: 1,
-			funcs: [
-				(complete) => {
-					var counter = 0;
-					var a = setInterval(function() {
-						counter++;
-						console.log('func 1 counter: ' + counter);
-						if (counter >= 4) {
-							clearInterval(a);
-							complete();
-						}
-					}, 500);
-		        },
-				(complete) => {
-					var counter = 0;
-					var a = setInterval(function() {
-						counter++;
-						console.log('func 2 counter: ' + counter);
-						if (counter >= 4) {
-							clearInterval(a);
-							complete();
-						}
-					}, 500);
-		        },
-				(complete) => {
-					var counter = 0;
-					var a = setInterval(function() {
-						counter++;
-						console.log('func 3 counter: ' + counter);
-						if (counter >= 4) {
-							clearInterval(a);
-							complete();
-						}
-					}, 500);
-		        },
-				(complete) => {
-					var counter = 0;
-					var a = setInterval(function() {
-						counter++;
-						console.log('func 4 counter: ' + counter);
-						if (counter >= 4) {
-							clearInterval(a);
-							complete();
-						}
-					}, 500);
-		        }
-		    ],
-			done: function() {
-				console.log('done called, done');
-			}
-		});
+		console.log('done called, done');
+
 
 	}
 });
