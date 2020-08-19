@@ -1,10 +1,55 @@
-#FuncCon (function concurrence).
-
+# FuncCon
+## (function concurrence)
+<hr/>
 An old strategy for executing a function after a serious of asynchronous functions run to completion.
 
 ...which can also be used to make things run in sequnce, by setting the size aregument to 1
 
 The "size" argument sets how many functions are allowed to run simultaniously
+<hr/><br/>
+
+
+
+<blockquote>
+    <br/>release notes:
+    <br/><br/>
+    <blockquote>
+        <br/>
+        6.0.0:
+		<br/>
+		<br/>
+        <blockquote>
+            <br/>
+            
+- promise interface added<br/><br/>
+    - ```done: () = >{}``` is still supported, but now optional<br/><br/>
+    - 
+        ```javascript
+        con({
+            size: numberOfFunctionsAllowedToRunAtOnce,
+            funcs: arrayOfYourFunctions
+        }).then(()=>{
+            // next step here
+        });
+        ```
+    - OR<br/><br/>
+    - 
+        ```javascript
+        con({
+            size: numberOfFunctionsAllowedToRunAtOnce,
+            funcs: arrayOfYourFunctions
+            done: ()=>{
+                // next step here
+            }
+        });
+        ```
+        <br/>
+        </blockquote>
+        <br/>
+        <br/>
+    </blockquote>
+    <br/>
+    <br/>
 
 ```javascript
 var con = require(funccon);
