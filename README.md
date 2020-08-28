@@ -168,4 +168,4 @@ con({
 
 ```
 </blockquote><br/>
-Inline versions available is es5 and es6 at: https://www.adammeola.com/wk/index.php/Js/funccon
+Inline versions available is es5 and es6 at:  <a href="https://www.adammeola.com/wk/index.php/Js/funccon">https://www.adammeola.com/wk/index.php/Js/funccon</a>
