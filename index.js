@@ -1,1 +1,1 @@
-module.exports=a=>new Promise((function(g,h){for(var c=-1,b=0,d=!1,f=function(){c++,a.funcs[c]?(b++,a.funcs[c]((function(k){b--,setTimeout(f,8)}))):b||d||(a.hasOwnProperty("done")&&a.done(),g(),d=!0,setTimeout((function(){a=b=d=null}),8))},e=0;e<a.size;e++)f(e)}));
+module.exports=a=>new Promise((function(g,h){for(let c=-1,b=0,d=!1,f=function(){c++,a.funcs[c]?(b++,a.funcs[c]((function(k){b--,setTimeout(f,8)}))):b||d||(a.hasOwnProperty("done")&&a.done(),g(),d=!0,setTimeout((function(){a=b=d=null}),8))},e=0;e<a.size;e++)f(e)}));
